@@ -10,6 +10,9 @@ const SideBar = () => {
           <li>
             <a href='/articles'>Articulos</a>
           </li>
+          <li>
+            <a href='/albums'>Albumes</a>
+          </li>
         </ul>
       </aside>
     </div>

@@ -96,6 +96,7 @@ export function getUsersAction(id) {
       const responseUser = await clienteAxios.get(`/users?id=${id}`);
     
       dispatch(downloadUsersSucces(responseUser.data[0], id));
+      
     } catch (error) {
       dispatch(downloadUsersError());
     }

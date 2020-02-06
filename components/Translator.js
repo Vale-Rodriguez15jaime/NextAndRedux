@@ -18,7 +18,10 @@ const trans = {
     userId: "Id del Usuario",
     title: "Titulo",
     body: "Contenido",
-    postId: "Id del Articulo"
+    postId: "Id del Articulo",
+    albumId: "Id del Album",
+    url: "Url de la Foto",
+    thumbnailUrl: "Url de la Foto Miniatura"
 
 
 

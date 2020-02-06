@@ -1,24 +1,25 @@
 import React, { useState, Fragment } from "react";
 import Formulario from "../../components/Formulario";
-import Router, { useRouter } from "next/router";
-import { createNewArticleAction } from "../../store/articles/articleActions";
-import { connect, useSelector } from "react-redux";
+import Router from "next/router";
+import { createNewPhotoAction } from "../../store/albumes/albumActions";
+import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { FaPlusCircle } from "react-icons/fa";
 import Swal from "sweetalert2";
 import "../../styles/styles.sass";
-const NewArticle = props => {
+const NewPhoto = props => {
   const [fields, setFields] = useState({
-    userId: "",
+    albumId: "",
     id: "",
     title: "",
-    body: ""
+    url: "",
+    thumbnailUrl: ""
   });
   const SIZE = 22;
 
-  const add = article => props.createNewArticleAction(article);
+  const add = photo => props.createNewPhotoAction(photo);
 
-  const submitNewArt = e => {
+  const submitNew = e => {
     console.log(fields);
 
     if (Object.values(fields).includes("")) {
@@ -33,21 +34,15 @@ const NewArticle = props => {
 
     add(fields);
 
-    Router.push("/comments/new");
+    Router.push("/albums");
   };
 
   return (
     <Fragment>
-      <div className='containerBtn' style={{marginRight: '17rem'}}>
-        <a className='button is-secondary mr15' href='/users/new'>
-          <FaPlusCircle size={SIZE} />    Crear Usuario
-        </a>
-      </div>
-
       <Formulario
         fields={fields}
         setFields={setFields}
-        onSubmitSave={submitNewArt}
+        onSubmitSave={submitNew}
       />
     </Fragment>
   );
@@ -55,8 +50,8 @@ const NewArticle = props => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    createNewArticleAction: bindActionCreators(createNewArticleAction, dispatch)
+    createNewPhotoAction: bindActionCreators(createNewPhotoAction, dispatch)
   };
 };
 
-export default connect(null, mapDispatchToProps)(NewArticle);
+export default connect(null, mapDispatchToProps)(NewPhoto);

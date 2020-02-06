@@ -60,8 +60,15 @@ const NewUser = props => {
     }
 
     addUser(fields);
-
-    Router.push("/articles");
+    Swal.fire({
+      title: "Creado",
+      text: "Se creo el usuario",
+      icon: "succes",
+      timer: 4000
+    });
+    
+    setTimeout(Router.back(), 9000)
+   // Router.back();
   };
 
   return (
