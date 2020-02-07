@@ -2,8 +2,8 @@ import React from "react";
 import { FaEdit, FaTrash } from "react-icons/fa";
 
 const Article = ({ article, openComment, confirmDelete }) => {
-    console.log(article)
-   const SIZE = "15";
+  console.log(article);
+  const SIZE = "15";
   return (
     <div className='card post-item'>
       <div className='card-content'>
@@ -44,18 +44,15 @@ const Article = ({ article, openComment, confirmDelete }) => {
           </div>
           <time dateTime={new Date()}>11:09 PM - 22 Jan 2019</time>
         </div>
-        <div>      <button
-          className='button is-link is-outlined mr5'
-          type='button'
-          >
-          <FaEdit size={SIZE} />
-        </button>       <button
-          className='button is-danger is-outlined mr5'
-          onClick={() => confirmDelete(article.id)}
-          type='button'>
-          <FaTrash size={SIZE} />
-        </button></div>
-   
+        <div>
+          {" "}
+          <button
+            className='button is-danger is-outlined mr5'
+            onClick={() => confirmDelete(article.id)}
+            type='button'>
+            <FaTrash size={SIZE} />
+          </button>
+        </div>
       </div>
     </div>
   );

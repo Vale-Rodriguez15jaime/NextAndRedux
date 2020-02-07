@@ -14,48 +14,10 @@ import {
 const Swal = withReactContent(Swals);
 const ArticleContainer = props => {
   const { article } = props;
-  //console.log(article)
+
   const [loaded, setLoaded] = useState(false);
   const load = useSelector(state => state.articles.loading);
-  /*
-  useEffect(() => {
-    
-    const loadP = props => {
-      if (
-        article.users === undefined &&
-        (article.loading === undefined || article.loading === false) &&
-        !load
-      ) {
-        if (article.userId != undefined) {
-          props.getUsersAction(article.userId);
-        }
-      }}
 
-     
-        
-      
-    const loadU = props => { 
-      if (
-        article.comments === undefined &&
-        (article.loading === undefined || article.loading === false) &&
-        !load
-      ) {
-        props.getCommentsAction(article.id);
-      }
-      
-    } 
-    
-    const call = (props) => {
-      loadU(props)
-      loadP(props);
-    }
-    
-    call(props)
-    
-    return () => {
-      call
-    };
-  }, [])*/
   if (!loaded) {
     if (
       article.users === undefined &&

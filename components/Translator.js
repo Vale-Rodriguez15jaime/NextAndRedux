@@ -6,7 +6,7 @@ const trans = {
     name: "Nombre",
     username: "Nombre de Usuario",
     email: "Email",
-    address: "Dirección", 
+    address: "Dirección",
     street: "Calle",
     city: "Ciudad",
     zipcode: "Codigo Postal",
@@ -19,14 +19,9 @@ const trans = {
     title: "Titulo",
     body: "Contenido",
     postId: "Id del Articulo",
-    albumId: "Id del Album",
+    albumId: "Id del Album previamente creado o existente",
     url: "Url de la Foto",
     thumbnailUrl: "Url de la Foto Miniatura"
-
-
-
-
-
   },
   en: {
     id: "Identification"

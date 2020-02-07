@@ -4,22 +4,10 @@ import { GoMarkGithub } from "react-icons/go";
 import { FaListUl } from "react-icons/fa";
 
 class Nav extends React.Component {
-  /*state = {
-    todo_open: false
-  };
-
-  switchTodo = () => {
-    this.setState({
-      todo_open: !this.state.todo_open
-    });
-  };*/
   render() {
     const SIZE = "22";
     return (
       <nav className='navbar is-white'>
-     {/**  <Todos
-          todoOpen={this.state.todo_open}
-          switchTodo={this.switchTodo}></Todos>*/} 
         <div className='container' style={{ position: "relative" }}>
           <div className='navbar-brand'>
             <a className='navbar-item brand-text' href='/'>
@@ -36,10 +24,7 @@ class Nav extends React.Component {
               </a>
             </div>
           </div>
-          <div
-            className='todo-button'
-           
-            title='Abrir barra de tareas'>
+          <div className='todo-button' title='Abrir barra de tareas'>
             <FaListUl />
           </div>
         </div>

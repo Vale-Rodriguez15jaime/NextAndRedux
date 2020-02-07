@@ -66,9 +66,8 @@ const NewUser = props => {
       icon: "succes",
       timer: 4000
     });
-    
-    setTimeout(Router.back(), 9000)
-   // Router.back();
+
+    setTimeout(Router.back(), 9000);
   };
 
   return (

@@ -5,31 +5,30 @@ import { connect, useSelector } from "react-redux";
 import List from "../components/List";
 
 function useSearch(articles) {
-    const [query, setQuery] = React.useState("");
-    const [filteredArticle, setFilteredArticle] = React.useState(articles);
-  
-    React.useMemo(() => {
-      const result = articles.filter(article => {
-        let us =
-          article.users !== undefined
-            ? `${article.users.name}`
-                .toLowerCase()
-                .includes(query.toLowerCase()) ||
-              `${article.users.username}`
-                .toLowerCase()
-                .includes(query.toLowerCase())
-            : false;
-        return (
-          `${article.title}`.toLowerCase().includes(query.toLowerCase()) ||
-          `${article.id}`.includes(query) ||
-          us
-        );
-      });
-      setFilteredArticle(result);
-    }, [articles, query]);
-    return { query, setQuery, filteredArticle };
-  }
+  const [query, setQuery] = React.useState("");
+  const [filteredArticle, setFilteredArticle] = React.useState(articles);
 
+  React.useMemo(() => {
+    const result = articles.filter(article => {
+      let us =
+        article.users !== undefined
+          ? `${article.users.name}`
+              .toLowerCase()
+              .includes(query.toLowerCase()) ||
+            `${article.users.username}`
+              .toLowerCase()
+              .includes(query.toLowerCase())
+          : false;
+      return (
+        `${article.title}`.toLowerCase().includes(query.toLowerCase()) ||
+        `${article.id}`.includes(query) ||
+        us
+      );
+    });
+    setFilteredArticle(result);
+  }, [articles, query]);
+  return { query, setQuery, filteredArticle };
+}
 
 const articles = props => {
   useEffect(() => {
@@ -106,8 +105,7 @@ const articles = props => {
       filtered={filteredArticle}
       setQuery={setQuery}
       list={articleList}
-      UrlNew={'/articles/new'}
-
+      UrlNew={"/articles/new"}
     />
   );
 };

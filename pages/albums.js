@@ -5,44 +5,43 @@ import { connect, useSelector } from "react-redux";
 import List from "../components/List";
 
 function useSearch(albums) {
-    const [query, setQuery] = React.useState("");
-    const [filteredAlbums, setFilteredAlbums] = React.useState(albums);
-  
-    React.useMemo(() => {
-      const result = albums.filter(albums => {
-        let us =
-        albums.users !== undefined
-            ? `${albums.users.name}`
-                .toLowerCase()
-                .includes(query.toLowerCase()) ||
-                `${albums.users.username}`
-                .toLowerCase()
-                .includes(query.toLowerCase()) ||
-                `${albums.users.address.city}`
-                .toLowerCase()
-                .includes(query.toLowerCase())
-            : false;
-        return (
-          `${albums.title}`.toLowerCase().includes(query.toLowerCase()) ||
-          `${albums.id}`.includes(query) ||
-          us
-        );
-      });
-      setFilteredAlbums(result);
-    }, [albums, query]);
-    return { query, setQuery, filteredAlbums };
-  }
+  const [query, setQuery] = React.useState("");
+  const [filteredAlbums, setFilteredAlbums] = React.useState(albums);
 
+  React.useMemo(() => {
+    const result = albums.filter(albums => {
+      let us =
+        albums.users !== undefined
+          ? `${albums.users.name}`
+              .toLowerCase()
+              .includes(query.toLowerCase()) ||
+            `${albums.users.username}`
+              .toLowerCase()
+              .includes(query.toLowerCase()) ||
+            `${albums.users.address.city}`
+              .toLowerCase()
+              .includes(query.toLowerCase())
+          : false;
+      return (
+        `${albums.title}`.toLowerCase().includes(query.toLowerCase()) ||
+        `${albums.id}`.includes(query) ||
+        us
+      );
+    });
+    setFilteredAlbums(result);
+  }, [albums, query]);
+  return { query, setQuery, filteredAlbums };
+}
 
 const albums = props => {
   useEffect(() => {
     const loadA = props.getAlbumAction();
-//loadA() REACT SOLO
+    //loadA() REACT SOLO
     return () => {
       clearInterval(loadA());
     };
     // eslint-disable-next-line
-  }, []); 
+  }, []);
 
   const albums = useSelector(state => state.albumes.albums);
   const error = useSelector(state => state.albumes.error);
@@ -109,8 +108,7 @@ const albums = props => {
       filtered={filteredAlbums}
       setQuery={setQuery}
       list={albumsList}
-      UrlNew={'/albums/new'}
-
+      UrlNew={"/albums/new"}
     />
   );
 };

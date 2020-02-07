@@ -61,10 +61,6 @@ const Album = ({ albums, openPhoto, confirmDelete }) => {
           <time dateTime={new Date()}>11:09 PM - 22 Jan 2019</time>
         </div>
         <div>
-          {" "}
-          <button className='button is-link is-outlined mr5' type='button'>
-            <FaEdit size={SIZE} />
-          </button>{" "}
           <button
             className='button is-danger is-outlined mr5'
             onClick={() => confirmDelete(albums.id)}

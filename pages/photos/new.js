@@ -42,8 +42,9 @@ const NewPhoto = props => {
       <Formulario
         fields={fields}
         setFields={setFields}
-        onSubmitSave={submitNew}
-      />
+        onSubmitSave={submitNew}>
+        <h1 className='title'>Foto</h1>
+      </Formulario>
     </Fragment>
   );
 };

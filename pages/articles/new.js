@@ -38,17 +38,18 @@ const NewArticle = props => {
 
   return (
     <Fragment>
-      <div className='containerBtn' style={{marginRight: '17rem'}}>
+      <div className='containerBtn' style={{ marginRight: "17rem" }}>
         <a className='button is-secondary mr15' href='/users/new'>
-          <FaPlusCircle size={SIZE} />    Crear Usuario
+          <FaPlusCircle size={SIZE} /> Crear Usuario
         </a>
       </div>
 
       <Formulario
         fields={fields}
         setFields={setFields}
-        onSubmitSave={submitNewArt}
-      />
+        onSubmitSave={submitNewArt}>
+        <h1 className='title'>Nuevo Articulo</h1>
+      </Formulario>
     </Fragment>
   );
 };
