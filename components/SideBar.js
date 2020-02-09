@@ -13,6 +13,9 @@ const SideBar = () => {
           <li>
             <a href='/albums'>Albumes</a>
           </li>
+          <li>
+            <a href='/editOnline'>Editor de Codigo</a>
+          </li>
         </ul>
       </aside>
     </div>

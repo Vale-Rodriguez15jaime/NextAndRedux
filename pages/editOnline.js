@@ -1,7 +1,7 @@
 import React from "react";
 import { Controlled as CodeMirror } from "react-codemirror2";
 import Layout from "../components/Layout";
-import { FaFileDownload, FaCode, FaCheck } from "react-icons/fa";
+import { FaFileDownload, FaCode, FaCloudUploadAlt } from "react-icons/fa";
 import "../styles/styles.sass";
 import Swal from "sweetalert2";
 import "codemirror/addon/hint/show-hint.css";
@@ -247,7 +247,7 @@ class EditOnline extends React.Component {
                   />
                   <span className='file-cta'>
                     <span className='file-icon'>
-                      <i className='fas fa-upload'></i>
+                     <FaCloudUploadAlt />
                     </span>
                     <span className='file-label'>Subir archivo</span>
                   </span>
