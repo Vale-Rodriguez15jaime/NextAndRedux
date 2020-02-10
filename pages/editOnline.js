@@ -1,7 +1,7 @@
 import React from "react";
 import { Controlled as CodeMirror } from "react-codemirror2";
 import Layout from "../components/Layout";
-import { FaFileDownload, FaCode, FaCloudUploadAlt } from "react-icons/fa";
+import { FaFileDownload, FaCode, FaCloudUploadAlt, FaCheck } from "react-icons/fa";
 import "../styles/styles.sass";
 import Swal from "sweetalert2";
 import "codemirror/addon/hint/show-hint.css";
@@ -120,6 +120,28 @@ class EditOnline extends React.Component {
       readOnly: !this.state.readOnly
     });
   };
+  validateCode = (e, showValid = true) => {
+    switch (this.state.mode) {
+      case "javascript":
+        try {
+          var result = window.jsonlint.parse(this.state.code);
+          if (result) {
+            if (showValid) {
+                Swal.fire("Tu codigo JSON es valido!", ":)", "success");
+            }
+            return true;
+        }
+    } catch (e) {
+        Swal.fire(e.message, ":(", "warning");
+        console.log(e)
+          return false;
+        }
+        break;
+      default:
+        break;
+    }
+    return false;
+  };
   render = () => {
     let options = {
       lineNumbers: true,
@@ -202,6 +224,14 @@ class EditOnline extends React.Component {
                 margin: "0px 0px 0px 20px"
               }}>
               <FaCode /> Formatear Codigo
+            </button>
+            <button
+              className='button is-success'
+              onClick={this.validateCode}
+              style={{
+                margin: "0px 0px 0px 20px"
+              }}>
+              <FaCheck /> Validar Codigo Js
             </button>
           </div>
 
