@@ -10,7 +10,7 @@
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
     "@zeit/next-sass": "^1.0.1",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "bulma": "^0.8.0",
     "codemirror": "^5.51.0",
     "js-beautify": "^1.10.3",
